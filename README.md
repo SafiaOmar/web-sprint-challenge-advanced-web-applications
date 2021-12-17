@@ -141,9 +141,8 @@ Answer: a web server is a computer that stores web server software and a website
 whenever a browser needs a file that is hosted on a web server, the browser requests the file via HTTP. When the request reaches the correct (hardware) web server, the (software) HTTP server accepts the request, finds the requested document, and sends it back to the browser
 
 4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
-
-Answer:
-delete - DELETE
-read - GET
-create - POST
-update - PUT
+   Answer:
+   delete - DELETE
+   read - GET
+   create - POST
+   update - PUT
