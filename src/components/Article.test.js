@@ -1,10 +1,10 @@
-import React from 'react';
-import '@testing-library/jest-dom';
+import React from "react";
+import "@testing-library/jest-dom";
 
-import userEvent from '@testing-library/user-event';
-import MutationObserver from 'mutationobserver-shim';
+import userEvent from "@testing-library/user-event";
+import MutationObserver from "mutationobserver-shim";
 
-import Article from './Article';
+import Article from "./Article";
 import { render, screen } from "@testing-library/react";
 
 test('renders component without errors', ()=> {
@@ -26,7 +26,7 @@ test('renders component without errors', ()=> {
 // test('renders headline, author from the article when passed in through props', ()=> {
 // });
 
-test('renders "Associated Press" when no author is given', ()=> {
+test("renders headline, author from the article when passed in through props", () => {
     render(
       <Article
         article={{
@@ -41,61 +41,63 @@ test('renders "Associated Press" when no author is given', ()=> {
       />
     );
 
-    // test('renders "Associated Press" when no author is given', ()=> {
+// test('renders "Associated Press" when no author is given', ()=> {
 // });
 
 const headline = screen.queryByText(/this is the headline/i);
-const author = screen.queryByText(/this is the author/i);
+  const author = screen.queryByText(/this is the author/i);
 
 // test('executes handleDelete when the delete button is pressed', ()=> {
 // });
+
 expect(headline).toBeInTheDocument();
   expect(author).toBeInTheDocument();
 });
 
 test('renders "Associated Press" when no author is given', () => {
-    render(
-      <Article
-        article={{
-          id: "",
-          headline: "",
-          createdOn: "",
-          author: "",
-          image: "",
-          summary: "",
-          body: "",
-        }}
-      />
-    );
-  
-    const press = screen.queryByText(/associated press/i);
-  
-    expect(press).toBeInTheDocument();
-  });
-  
-  test("executes handleDelete when the delete button is pressed", async () => {
-    const mockDelete = jest.fn();
-  
-    render(
-      <Article
-        article={{
-          id: "",
-          headline: "",
-          createdOn: "",
-          author: "",
-          image: "",
-          summary: "",
-          body: "",
-        }}
-        handleDelete={mockDelete}
-      />
-    );
-  
-    const button = screen.queryByTestId("deleteButton");
-    userEvent.click(button);
-  
-    await expect(mockDelete).toBeCalled();
-  });
-  
-//Task List: 
+  render(
+    <Article
+      article={{
+        id: "",
+        headline: "",
+        createdOn: "",
+        author: "",
+        image: "",
+        summary: "",
+        body: "",
+      }}
+    />
+  );
+
+  const press = screen.queryByText(/associated press/i);
+
+  expect(press).toBeInTheDocument();
+});
+
+test("executes handleDelete when the delete button is pressed", async () => {
+  const mockDelete = jest.fn();
+
+  render(
+    <Article
+      article={{
+        id: "",
+        headline: "",
+        createdOn: "",
+        author: "",
+        image: "",
+        summary: "",
+        body: "",
+      }}
+      handleDelete={mockDelete}
+    />
+  );
+
+  const button = screen.queryByTestId("deleteButton");
+  userEvent.click(button);
+
+  await expect(mockDelete).toBeCalled();
+});
+
+
+//Task List:
 //1. Complete all above tests. Create test article data when needed.
